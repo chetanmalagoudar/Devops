@@ -34,3 +34,6 @@ ENTRYPOINT ["/app"]
 # In the provided Dockerfile, we use the scratch base image for the final runtime stage.
 #  The scratch image is a special minimal image provided by Docker, and it is often used for building distroless images, meaning images without any OS or libraries. 
 #  Using scratch as the base image means we are starting with a completely empty slate, and we only add the specific files we need for our application.
+
+# NOTES:
+# - If we are using scratch for python application this might fail because python needs runtime to execute the application
