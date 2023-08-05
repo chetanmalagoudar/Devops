@@ -37,3 +37,7 @@ ENTRYPOINT ["/app"]
 
 # NOTES:
 # - If we are using scratch for python application this might fail because python needs runtime to execute the application
+#  - Instead of scratch we have to use python/Java/C# distroless images
+
+
+# You can find the distroless images on : https://github.com/GoogleContainerTools/distroless
