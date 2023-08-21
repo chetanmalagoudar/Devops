@@ -1,0 +1,21 @@
+kind: pod
+apiVersion: v1  ## <api-group>/<version> since the pod is the core API group which omits the Api-Group
+metadata:
+  name: hello-pod
+  labels:
+    zone: prod
+    version: v1
+spec:
+  containers:
+    - image: nigelpoulton/k8sbook:1.0
+      name: hello-ctr
+      ports:
+      - containerPort: 8080
+
+
+### Command to run - to create a Pod
+### kubectl apply -f pod.yml
+### pod/hello-pod is created
+
+## WE can execute a command in Pod
+# kubectl exec -it hello-pod -- sh 

@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8sbook
+spec:
+  selector:
+    app: initializer
+  ports:
+    - port: 80          # The port that the Service is exposed on
+      targetPort: 8080  # The port that the Pods are listening on
+  type: ClusterIP
+
+
+
+# First run this init service, before initpod
+
+# apiVersion: Specifies the Kubernetes API version being used. In this case, it's v1.
+# kind: Indicates the kind of resource being defined. Here, it's a Kubernetes Service.
+# metadata: Contains metadata about the Service.
+# name: Sets the name of the Service to "k8sbook".
+# spec: Defines the specification of the Service.
+# selector: Specifies labels(the pod should also have a label called app: initializer) used to select which Pods the Service should forward traffic to.
+#  This is where the connection between the Service and the Pods is established.
+# ports: Specifies the ports exposed by the Service.
+# port: The port number on which the Service should be exposed.
+# targetPort: The port on the Pods that the Service should forward traffic to.
+# type: Specifies the type of Service. Here, it's ClusterIP, which exposes the Service internally within the cluster.
+
+
+
+# In depth explaination of `selector`
+# The selector field plays a crucial role in establishing the connection between a Service and the Pods it should forward traffic to. Here's a detailed explanation of this concept:
+
+# Labeling Pods: In Kubernetes, Pods can be labeled with key-value pairs called labels. Labels are arbitrary metadata attached to Pods that can be used for categorization, organization, and selection purposes.
+
+# Pod Selection: The purpose of a Service is to provide a stable endpoint to access a set of Pods. However, the Pods that need to be exposed can change dynamically due to scaling, rolling updates, or other factors. The selector field defines a set of labels that are used to dynamically select which Pods the Service should target.
+
+# Matching Labels: When a Service has a selector defined, it looks for Pods with labels that match the labels specified in the selector. In the example selector: app: initializer, the Service is looking for Pods labeled with app=initializer.
+
+# Forwarding Traffic: Once the Service identifies the Pods that match the specified labels, it forwards incoming network traffic to those Pods. This allows the Service to distribute incoming requests across the selected Pods using load balancing.
+
+# Automatic Updates: As Pods are scaled up or down, or as they change due to updates or failures, the Service continuously monitors the set of matching Pods and updates its forwarding rules accordingly. This ensures that the Service always routes traffic to the current set of Pods with matching labels.
