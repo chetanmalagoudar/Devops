@@ -55,5 +55,7 @@ The `AWS VPC Designs` folder focuses on AWS Virtual Private Cloud (VPC) designs 
 ### Contents
 
 - **NAT Gateway Designs**: Practice creating AWS VPC designs that incorporate Network Address Translation (NAT) Gateways for secure outbound traffic from private subnets.
+- ![image](https://github.com/chetanmalagoudar/Devops-Practice-Sets/assets/110586598/bb243ced-0e69-45d8-b522-d5d15a8155f1)
+
 
 - **VPC Peering Scenarios**: Explore VPC peering scenarios and design VPC architectures that facilitate secure communication between isolated network environments.
